@@ -16,7 +16,7 @@ for (let i = 0; i < estrazioni; i++) {
 }
 
 // Funzione per creare e aggiornare le card
-function creaCard(id, data) {
+function creaCard(id, data, numero) {
     let card = document.querySelector(`#${id}`);
     if (!card) {
         console.error(`Elemento con ID ${id} non trovato nel DOM.`);
@@ -28,7 +28,7 @@ function creaCard(id, data) {
             <div class="card-body">
                 <h5 class="card-title">${data.name}</h5>
                 <p class="card-text">${data.description}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="./pagine/paginaViaggio.html" class="btn btn-primary save-link" data-numero="${numero}">Seleziona viaggio</a>
             </div>
         </div>
     `;
@@ -49,9 +49,22 @@ numeriEstratti.forEach((numero, index) => {
             }
         })
         .then(data => {
-            creaCard(cardId, data);
+            creaCard(cardId, data, numero);
         })
         .catch(error => {
             console.error(`Errore durante il fetch per ${cardId}:`, error);
         });
+});
+
+// Aggiungi event listener ai pulsanti dopo il caricamento delle card
+document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("save-link")) {
+        event.preventDefault(); // Evita la navigazione immediata del link
+        let numero = event.target.getAttribute("data-numero");
+        if (numero) {
+            localStorage.setItem("numeroCitta", JSON.stringify(Number(numero)));
+            console.log(`Numero salvato nel localStorage: ${numero}`);
+            window.location.href = event.target.href; // Ora avviene la navigazione
+        }
+    }
 });

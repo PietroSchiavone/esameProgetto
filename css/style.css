@@ -29,8 +29,8 @@
 .carousel-indicators [data-bs-target] {
     box-sizing: content-box;
     flex: 0 1 auto;
-    width: 10px; /* change width */
-    height: 10px; /* change height */
+    width: 10px;
+    height: 10px;
     padding: 0;
     margin-right: 3px;
     margin-left: 3px;
@@ -46,48 +46,43 @@
     border-radius: 100%;
 }
 
-/* Layout della griglia */
 .card-container {
     display: flex;
-    flex-wrap: wrap; /* Permette di andare a capo */
-    gap: 20px; /* Spaziatura tra le card */
-    justify-content: center; /* Centra le card nella pagina */
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
-/* Stile per le card */
 .card {
-    height: 500px; /* Altezza fissa */
+    height: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Distribuisce i contenuti */
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     padding: 10px;
-    border: 1px solid #ddd; /* Bordo sottile */
-    border-radius: 8px; /* Angoli arrotondati */
-    overflow: hidden; /* Nasconde il contenuto in eccesso */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombra per migliorare l'aspetto */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Immagini delle card */
 .card img {
-    width: 100%; /* Immagine si adatta completamente alla larghezza della card */
-    height: 250px; /* Altezza fissa per tutte le immagini */
-    object-fit: cover; /* Mantiene le proporzioni, tagliando il contenuto in eccesso */
-    border-radius: 5px; /* Arrotonda gli angoli dell'immagine */
+    width: 100%;
+    height: 250px;
+    object-fit: cover; 
+    border-radius: 5px;
 }
 
-
-/* Corpo delle card */
 .card-body {
-    flex-grow: 1; /* Cresce per occupare lo spazio disponibile */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Spazia i contenuti */
+    justify-content: space-between;
     padding: 10px;
 }
 
-/* Testo */
 .card-title {
     font-size: 1.2em;
     font-weight: bold;
@@ -97,13 +92,12 @@
 .card-text {
     font-size: 0.9em;
     margin-bottom: 20px;
-    overflow: hidden; /* Nasconde il testo eccedente */
-    text-overflow: ellipsis; /* Aggiunge "..." per il testo tagliato */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Bottone */
 .btn {
-    align-self: center; /* Centra il bottone */
+    align-self: center;
     padding: 10px 20px;
 }
 
