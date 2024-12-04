@@ -1,5 +1,5 @@
 .ombra {
-    text-shadow: 0 0 10px black;
+    text-shadow: 0 0 15px black;
 }
 
 .svg-header {
@@ -54,7 +54,7 @@
 }
 
 .card {
-    height: 500px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
