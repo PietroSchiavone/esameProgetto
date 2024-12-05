@@ -2,6 +2,10 @@
     text-shadow: 0 0 15px black;
 }
 
+body {
+    background-color: rgb(250, 252, 241);
+}
+
 .svg-header {
     width: 7rem;
 }
