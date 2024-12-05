@@ -1,21 +1,18 @@
-let tot = 50; // Totale di numeri estraibili 
-let estrazioni = 6; // Quante estrazioni eseguire
+let tot = 50;
+let estrazioni = 6;
 let numeriTot = [];
 let numeriEstratti = [];
 
-// Popola l'array con i numeri da 1 a tot
 for (let i = 1; i <= tot; i++) {
     numeriTot.push(i);
 }
 
-// Estrai i numeri casuali
 for (let i = 0; i < estrazioni; i++) {
     let numeroEstratto = Math.floor(Math.random() * numeriTot.length);
     numeriEstratti.push(numeriTot[numeroEstratto]);
     numeriTot.splice(numeroEstratto, 1); // Rimuovi il numero estratto
 }
 
-// Funzione per creare e aggiornare le card
 function creaCard(id, data, numero) {
     let card = document.querySelector(`#${id}`);
     if (!card) {
@@ -35,7 +32,6 @@ function creaCard(id, data, numero) {
     card.innerHTML = cardText;
 }
 
-// Fetch dei dati e aggiornamento delle card
 numeriEstratti.forEach((numero, index) => {
     let link = `https://www.freetestapi.com/api/v1/destinations/${numero}`;
     let cardId = `card${index + 1}`;
@@ -56,15 +52,14 @@ numeriEstratti.forEach((numero, index) => {
         });
 });
 
-// Aggiungi event listener ai pulsanti dopo il caricamento delle card
 document.addEventListener("click", (event) => {
     if (event.target.classList.contains("save-link")) {
-        event.preventDefault(); // Evita la navigazione immediata del link
+        event.preventDefault();
         let numero = event.target.getAttribute("data-numero");
         if (numero) {
             localStorage.setItem("numeroCitta", JSON.stringify(Number(numero)));
             console.log(`Numero salvato nel localStorage: ${numero}`);
-            window.location.href = event.target.href; // Ora avviene la navigazione
+            window.location.href = event.target.href;
         }
     }
 });

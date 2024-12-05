@@ -1,4 +1,4 @@
-// Recupera il numero dal localStorage
+
 let numeroCitta = JSON.parse(localStorage.getItem("numeroCitta"));
 let title = document.querySelector("#title");
 
@@ -21,7 +21,7 @@ if (!numeroCitta) {
     .then(data => {
       // Crea la pagina e inseriscila nel body
       let htmlPage = creaPagina(data);
-      title.textContent = `Viaggio a ${data.name}`
+      title.textContent = `Miraggio Tours - ${data.name}`
       body.innerHTML = htmlPage;
     })
     .catch(error => {
@@ -46,9 +46,9 @@ function creaPagina(citta) {
 
   // Ritorna l'HTML
   return `
+  <img class="city-image rounded img-fluid" src="${citta.image}" alt="${citta.name}">
     <div class="container mb-5">
       <header class="city-header text-center mb-4">
-        <img class="city-image rounded img-fluid" src="${citta.image}" alt="${citta.name}">
         <h1 class="fs-1 my-3">${citta.name}</h1>
         <p class="fs-3">${citta.country}, ${citta.continent}</p>
       </header>

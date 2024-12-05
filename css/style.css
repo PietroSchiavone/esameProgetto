@@ -4,6 +4,7 @@
 
 body {
     background-color: rgb(250, 252, 241);
+    font-family: "Poppins", sans-serif;
 }
 
 .svg-header {
@@ -106,5 +107,20 @@ body {
 }
 
 #main-footer, #main-header{
-    background-color: #7571bb;
+    background-color: #96ac62;
+}
+
+.immagini-home {
+    display: none;
+    width: 100%;
+}
+
+.dropdown-item {
+    font-family: "Poppins", sans-serif;
+}
+
+@media screen and (min-width: 992px) {
+    .immagini-home{
+        display: block;
+    }
 }

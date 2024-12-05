@@ -1,6 +1,5 @@
 let destinazioni = [];
 
-// Funzione per creare e aggiungere una card al container specificato
 function creaCard(containerId, data, numero) {
     let container = document.querySelector(`#${containerId} .swiper-wrapper`);
     if (!container) {
@@ -22,7 +21,6 @@ function creaCard(containerId, data, numero) {
     container.insertAdjacentHTML("beforeend", cardHTML);
 }
 
-// Fetch dei dati e smistamento nei container giusti
 let link = `https://www.freetestapi.com/api/v1/destinations`;
 
 fetch(link)
@@ -36,7 +34,6 @@ fetch(link)
     .then(data => {
         console.log("Dati ricevuti dal server:", data);
 
-        // Smista le destinazioni nei rispettivi container
         data.forEach((destinazione, index) => {
             let containerId = "";
             switch (destinazione.continent) {
@@ -63,26 +60,24 @@ fetch(link)
                     return;
             }
 
-            // Crea la card nel container corrispondente
             creaCard(containerId, destinazione, index + 1);
         });
 
-        // Inizializza gli slider Swiper dopo aver aggiunto le card
         inizializzaSwiper();
     })
     .catch(error => {
         console.error("Errore durante il fetch delle destinazioni:", error);
     });
 
-// Aggiungi event listener ai pulsanti dopo il caricamento delle card
+
 document.addEventListener("click", (event) => {
     if (event.target.classList.contains("save-link")) {
-        event.preventDefault(); // Evita la navigazione immediata del link
+        event.preventDefault();
         let numero = event.target.getAttribute("data-numero");
         if (numero) {
             localStorage.setItem("numeroCitta", JSON.stringify(Number(numero)));
             console.log(`Numero salvato nel localStorage: ${numero}`);
-            window.location.href = event.target.href; // Ora avviene la navigazione
+            window.location.href = event.target.href;
         }
     }
 });
@@ -103,17 +98,13 @@ function inizializzaSwiper() {
                 clickable: true,
             },
             breakpoints: {
-                640: {
+                992: {
                     slidesPerView: 2,
                     spaceBetween: 20,
                 },
-                768: {
+                1200: {
                     slidesPerView: 3,
                     spaceBetween: 30,
-                },
-                1024: {
-                    slidesPerView: 4,
-                    spaceBetween: 40,
                 },
             },
         });
