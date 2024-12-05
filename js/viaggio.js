@@ -96,6 +96,24 @@ function creaPagina(citta) {
               <label for="inputEmail1" class="form-label">Email</label>
               <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp" required>
             </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label for="cvv" class="form-label">CVV</label>
+                  <input type="text" class="form-control" id="cvv" aria-describedby="emailHelp" required>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label for="scadenza" class="form-label">Scadenza</label>
+                  <input type="text" class="form-control" id="scadenza" aria-describedby="emailHelp" required>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="data" class="form-label">Data Prenotazione</label>
+              <input type="date" class="form-control" id="data" aria-describedby="data" required>
+            </div>
             <div class="mb-3 form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
               <label class="form-check-label" for="exampleCheck1">Accetto le condizioni</label>
